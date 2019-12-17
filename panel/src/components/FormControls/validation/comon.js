@@ -1,0 +1,1 @@
+export const required = message => v => !v ? message : undefined;
