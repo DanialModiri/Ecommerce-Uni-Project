@@ -1,19 +1,10 @@
 import React from 'react';
 import { FieldArray } from 'react-final-form-arrays';
 import { Field } from 'react-final-form';
-import classnames from 'classnames';
 
 function DynaDetail({ columns, name, label, initialValue, validate, className, ...rest }) {
-    const [hasAdded, setHasAdded] = React.useState(false);
     return <FieldArray value={initialValue} {...rest} validate={validate} name={name} >
         {({ fields, meta: { error, touched } }) => {
-            if (initialValue && Array.isArray(initialValue) && !hasAdded) {
-                initialValue.forEach(item => {
-                    fields.push(item);
-                })
-                console.log(fields)
-                setHasAdded(true);
-            }
             return <div className={className}>
                 <label>{label}</label>
                 <table className={"bg-white rounded-lg shadow w-full p-2 mt-2"}>
