@@ -1,11 +1,17 @@
 import React from 'react';
-import CreateProduct from './pages/CreateProduct';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import Layout, { routes } from './components/Layout';
 
-function App(){
-    return <div className="container">
-    <CreateProduct></CreateProduct>
-    </div> 
-
+function App() {
+    return <HashRouter>
+        <Layout>
+            <Switch>
+                {Object.keys(routes).map((routeKey, index) => <Route key={index} {...routes[routeKey]} />)}
+            </Switch>
+        </Layout>
+    </HashRouter>
 }
+
+
 
 export default App;

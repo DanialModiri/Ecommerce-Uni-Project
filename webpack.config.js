@@ -1,4 +1,5 @@
 const path = require('path');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin'); 
 module.exports = {
     entry: {
         website: path.resolve(__dirname, './website/index.js'),
@@ -15,6 +16,8 @@ module.exports = {
             { test: /\.css$/, use: ['style-loader', 'css-loader', ] }
         ]
     },
+    plugins: [new ErrorOverlayPlugin()],
+    devtool: 'cheap-module-source-map', 
     devServer: {
         port: 3000,
         open: true,

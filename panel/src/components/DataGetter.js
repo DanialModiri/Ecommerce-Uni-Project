@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 
 class DataGetter extends Component {
 
@@ -17,15 +18,21 @@ class DataGetter extends Component {
                     loading: false
                 });
             }).catch(err => {
-                this.setState({
-                    error: err.response.data,
-                    loading: false
-                });
+                if (err.response)
+                    return this.setState({
+                        error: err.response.data,
+                        loading: false
+                    });
+                this.setState({ error: err.message });
             });
         })
     }
 
-    componentWillReceiveProps() {
+    componentWillReceiveProps(nextProps) {
+        const nextObj = {...nextProps, children: undefined};
+        const currentObj = {...this.props, children: undefined};
+        if(_.isEqual(nextObj, currentObj))
+            return;
         this.setState({ loading: true }, () => {
             axios.get(this.props.url, { params: this.props.params }).then(res => {
                 this.setState({
@@ -33,10 +40,12 @@ class DataGetter extends Component {
                     loading: false
                 });
             }).catch(err => {
-                this.setState({
-                    error: err.response.data,
-                    loading: false
-                });
+                if (err.response)
+                    return this.setState({
+                        error: err.response.data,
+                        loading: false
+                    });
+                this.setState({ error: err.message });
             });
         })
     }

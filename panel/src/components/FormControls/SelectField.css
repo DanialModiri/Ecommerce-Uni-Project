@@ -1,0 +1,22 @@
+
+.select-field {
+    padding: 8px;
+    position: relative;
+}
+.select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    list-style-type: none;
+    width: 100%;
+
+}
+.select-placeholder {
+    display: flex;
+}
+.highlighted-item {
+    background-color: rgb(196, 196, 196);
+    color: black;
+}
