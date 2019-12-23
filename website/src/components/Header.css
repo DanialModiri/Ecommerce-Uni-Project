@@ -1,0 +1,77 @@
+header.header {
+    margin: 0;
+    padding: 8px 0;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
+    background-color: white;
+}
+
+header.header .container {
+    display: flex;
+    direction: rtl;
+    height: 100%;
+}
+
+header.header h2 {
+    margin: auto 0;
+    font-size: 16px;
+}
+
+header.header .nav-items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    direction: rtl;
+    margin-right: 24px;
+    align-items: flex-end;
+    flex-grow: 1;
+}
+
+header.header .nav-items li {
+    margin-left: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+header.header .nav-items li:hover .underline {
+    width: 100%;
+}
+
+header.header .underline {
+    background-color: rgb(172, 0, 0);
+    width: 0;
+    display: block;
+    margin: auto;
+    height: 2.5px;
+    transition: 0.4s linear;
+}
+
+.user-widget {
+    border: 1px solid #aaaaaa;
+    padding: 4px 9px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+}
+
+.user-widget:hover {
+    background-color: rgb(170, 0, 0);
+    color: white;
+    border-color: rgb(170, 0, 0);
+}
+
+.user-widget span {
+    display: block;
+    margin: auto;
+}
+
+.user-widget .title {
+    margin-right: 8px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
