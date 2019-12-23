@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CreateProduct from '../pages/CreateProduct';
-import CreateCategory from '../pages/CreateCategory'
+import Products from '../pages/Products';
+import CreateCategory from '../pages/Category/CreateCategory';
 
 export const routes = {
     createCategory: { path: '/create/category', component: CreateCategory },
-    createProduct: { path: '/', component: CreateProduct },
-
+    createProduct: { path: '/create/products', component: CreateProduct },
+    products: { path: '/', component: Products },
 };
 
 const navs = [
@@ -15,7 +16,8 @@ const navs = [
 
         children: [
             { label: 'محصول جدید', link: routes.createProduct.path },
-            { label: 'دسته جدید', link: routes.createCategory.path }
+            { label: 'دسته جدید', link: routes.createCategory.path },
+            { label: 'مشاهده محصولات', link: routes.products.path }
         ]
     }
 ]

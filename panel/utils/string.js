@@ -72,3 +72,10 @@ export const wordifyRialsInTomans = function (num) {
 	
     return wordifyfa(num, 0) + " تومان";
 };
+
+export const renderNumber = (number) => {
+    if(typeof (number * 1) !== 'number')
+        return null;
+    number = Number(number);
+    return Math.round(number) === number ? number.toLocaleString() : number.toFixed(2).toLocaleString();
+}
