@@ -2,8 +2,8 @@ import React from 'react';
 import { FieldArray } from 'react-final-form-arrays';
 import { Field } from 'react-final-form';
 
-function DynaDetail({ columns, name, label, initialValue, validate, className, ...rest }) {
-    return <FieldArray value={initialValue} {...rest} validate={validate} name={name} >
+function DynaDetail({ columns, name, label, validate, className, ...rest }) {
+    return <FieldArray {...rest} validate={validate} name={name} >
         {({ fields, meta: { error, touched } }) => {
             return <div className={className}>
                 <label>{label}</label>
@@ -30,7 +30,7 @@ function DynaDetail({ columns, name, label, initialValue, validate, className, .
                                 </td>
                             })}
                             <td style={{ verticalAlign: 'inherit' }}>
-                                <button className="border rounded-full w-8 h-8 text-center outline-0 bg-red-800 text-white block" style={{ margin: 'auto' }} onClick={() => {
+                                <button type="button" className="border rounded-full w-8 h-8 text-center outline-0 bg-red-800 text-white block" style={{ margin: 'auto' }} onClick={() => {
                                     fields.remove(index);
                                 }}>
                                     <span className="fa fa-trash"></span>

@@ -1,14 +1,14 @@
 import React from 'react';
-import DataPoster from '../components/DataPoster';
+import DataPoster from '../../components/DataPoster';
 import { Form, Field } from 'react-final-form';
 import { ThreeDots } from 'svg-loaders-react';
-import InputControl from '../components/FormControls/InputControl';
-import { required } from '../components/FormControls/validation/comon';
-import DynaDetail from '../components/FormControls/DynaDetail';
-import SelectField from '../components/FormControls/SelectField';
+import InputControl from '../../components/FormControls/InputControl';
+import DynaDetail from '../../components/FormControls/DynaDetail';
+import SelectField from '../../components/FormControls/SelectField';
 import formArrays from 'final-form-arrays'
 import classnames from 'classnames'
-import { length } from '../components/FormControls/validation/arrays'
+import { length } from '../../components/FormControls/validation/arrays'
+import { required } from '../../components/FormControls/validation/comon';
 
 function CreateCategory() {
    return <div className="">
