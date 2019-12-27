@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost:27017/uni-project-ecommerce', (err) => {
         console.log('Running')
 });
 app.use(cors())
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(routes);
 app.use(validationMiddleware);
 const port = 3000;

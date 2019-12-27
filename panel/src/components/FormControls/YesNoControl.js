@@ -12,8 +12,8 @@ function YesNo({ input, label, description, yesLabel = 'بله', noLabel = 'خی
             input.onChange(!input.value);
         }}
         className="border rounded flex w-32 cursor-pointer">
-            <span className={classnames("w-1/2 text-center block", { 'bg-red-400': input.value === false })}>{noLabel}</span>
-            <span className={classnames("w-1/2 text-center block", { 'bg-green-400': input.value === true })}>{yesLabel}</span>
+            <span className={classnames("w-1/2 text-center block select-none", { 'bg-red-400': input.value === false })}>{noLabel}</span>
+            <span className={classnames("w-1/2 text-center block select-none", { 'bg-green-400': input.value === true })}>{yesLabel}</span>
         </div>
     {description && <span className="text-gray-600">{description}</span>}
     </div>

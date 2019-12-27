@@ -12,14 +12,16 @@ const simpleMemoize = fn => {
     };
 };
 
-export const isAvaible = ({ url, nameField = 'name', message }) => simpleMemoize(async value => {
-    if (!value) {
-        return "Required";
-    }
-    const products = await Axios.get(url, { params: { [nameField]: value } }).then(res => res.data);
-    if (products.length){
-        console.error(products.length);
-        return message;
-    }
-    return undefined;
-});
+
+
+export const isAvaible = ({ url, defaultText, nameField = 'name', message }) => {
+    return simpleMemoize(async value => {
+        if(defaultText && defaultText === value)
+            return undefined;
+        const products = await Axios.get(url, { params: { [nameField]: value } }).then(res => res.data);
+        if (products.length) {
+            return message;
+        }
+        return undefined;
+    })
+};

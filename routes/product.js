@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
 
 //get one
 router.get('/:id', async (req, res) => {
-    const product = await Product.findOne({ name: req.params.id });
-    res.send(product);
+    const product = await Product.findById(req.params.id).populate('category', ['_id', 'name']);
+    res.send({...product._doc, ...product._doc.filters } );
 });
 
 //insert one
