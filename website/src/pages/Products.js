@@ -2,15 +2,13 @@ import React from 'react';
 import './Products.css'
 import DataGetter from '../components/DataGetter';
 import Product from '../components/Product';
+import SearchField from '../components/SearchField'
 
 function Products() {
     return <div>
         <div className="search-bar">
             <div className="container">
-                <div className="search-field">
-                    <span className="fa fa-search"></span>
-                    <input className="search-input" placeholder="جستوجو در محصولات" />
-                </div>
+                <SearchField />
             </div>
         </div>
         <div className="container">

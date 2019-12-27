@@ -19,7 +19,7 @@ module.exports = {
     plugins: [new ErrorOverlayPlugin()],
     devtool: 'cheap-module-source-map', 
     devServer: {
-        port: 3000,
+        port: 3001,
         open: true,
         contentBase: path.resolve(__dirname, './public')
     }

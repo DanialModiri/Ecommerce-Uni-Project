@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
     filters: mongoose.SchemaTypes.Mixed,
     specifications: mongoose.SchemaTypes.Mixed,
     category: { type: mongoose.SchemaTypes.ObjectId, ref: 'Category' },
