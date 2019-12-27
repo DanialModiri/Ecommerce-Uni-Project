@@ -1,9 +1,10 @@
-export const url = 'http://localhost:3002';
+export const url = 'http://localhost:3000';
 
-export const endpoints = {
+const firstEndpoints = {
     categories: {
         post: '/categories',
-        get: '/categories'
+        get: '/categories',
+        search: '/categories/search/'// q
     },
     products: {
         post: '/products',
@@ -14,3 +15,22 @@ export const endpoints = {
 export const builder = (path) => {
     return url + path;
 }
+
+function parseREndpoints(obj, field) {
+    if (!field) {
+        for (let v of Object.keys(obj))
+            parseREndpoints(obj, v);
+    }
+    else if (typeof obj[field] === 'object') {
+        for (let v of Object.keys(obj[field]))
+            parseREndpoints(obj[field], v);
+    }
+    else {
+        obj[field] = builder(obj[field]);
+    }
+}
+
+parseREndpoints(firstEndpoints);
+
+export const endpoints = firstEndpoints
+

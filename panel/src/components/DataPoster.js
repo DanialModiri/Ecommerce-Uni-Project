@@ -9,6 +9,7 @@ class DataPoster extends React.Component {
     }
 
     send = (data) => {
+        console.log(data)
         this.setState({ loading: true }, () => {
             axios.post(this.props.url, data).then(res => {
                 this.setState({ data: 'با موفقیت ثبت شد', loading: false })

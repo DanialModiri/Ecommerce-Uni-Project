@@ -6,13 +6,16 @@ import { ThreeDots } from 'svg-loaders-react';
 import DataGetter from '../DataGetter'
 
 function SelectField(props) {
-    const { items, input, label, initialSelectedItem, url, search, searchKey = 'q', idField='id', labelField = 'label', placeholder, onChange, inputClassName, meta: { error, touched }, className, ...rest } = props;
+    const { items, input, label, initialSelectedItem, url, search, searchKey = 'q', idField='_id', labelField = 'label', placeholder, onChange, inputClassName, meta: { error, touched }, className, ...rest } = props;
     return <Downshift
         {...input}
+        onSelect={() => {
+            input.onBlur();
+        }}
         initialSelectedItem={initialSelectedItem}
         onChange={(v) => {
-            input.onChange(v[idField]);
-            onChange && onChange(v[idField]);
+            input.onChange(v[idField], v);
+            onChange && onChange(v[idField], v);
         }}
         itemToString={(item) => item ? item[labelField] : ''}
         {...rest} >
@@ -27,7 +30,9 @@ function SelectField(props) {
                 <label>
                     {label}
                 </label>
-                {url ? <input className="bg-gray-200 rounded w-full p-1" {...getInputProps()} /> :
+                {url ? <input  onBlur={() => {
+                    input.onBlur()
+                }} className="bg-gray-200 rounded w-full p-1" {...getInputProps()} /> :
                     <div onClick={() => {
                         openMenu()
                     }} className={classnames(inputClassName, 'bg-gray-200 rounded w-full p-1 flex', { "border-red-700": error && touched })}>
@@ -41,8 +46,8 @@ function SelectField(props) {
                             <span className="fa fa-sort-down " />
                         </button>
                     </div>}
-                {touched && <span className="text-red-700 text-sm">{error}</span>}
-                {isOpen && <div className="left-0 absolute rounded w-full border bg-white"
+                {touched && error && <span style={{ fontSize: 12, color: 'red' }} className="text-red-700 text-sm">{error}</span>}
+                {isOpen && <div className={classnames("left-0 absolute rounded w-full border bg-white", { 'border-red-700':error && touched })}
                     style={{ transition: '.5s linear', minHeight: 50, left: '0', overflow: 'auto', zIndex: 1 }}>
                     {(search ? <DataGetter url={url} params={{ [searchKey]: inputValue }}>
                         {({ data, loading, error }) => {

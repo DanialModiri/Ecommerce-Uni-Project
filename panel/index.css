@@ -2,3 +2,7 @@
     direction: rtl;
     text-align: right;
 }
+
+body {
+    background-color: white;
+}
