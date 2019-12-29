@@ -13,9 +13,11 @@ class DataGetter extends Component {
     componentWillMount() {
         this.setState({ loading: true }, () => {
             axios.get(this.props.url, { params: this.props.params }).then(res => {
+                console.log(res.headers)
                 this.setState({
                     data: res.data,
-                    loading: false
+                    loading: false,
+                    size: res.headers['x-count'] || res.data.count
                 });
             }).catch(err => {
                 if (err.response)
@@ -35,9 +37,11 @@ class DataGetter extends Component {
             return;
         this.setState({ loading: true }, () => {
             axios.get(this.props.url, { params: this.props.params }).then(res => {
+                console.log(res.headers)
                 this.setState({
                     data: res.data,
-                    loading: false
+                    loading: false,
+                    size: res.data.count || res.headers['x-count']
                 });
             }).catch(err => {
                 if (err.response)

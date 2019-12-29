@@ -13,7 +13,11 @@ mongoose.connect('mongodb://localhost:27017/uni-project-ecommerce', (err) => {
     else
         console.log('Running')
 });
-app.use(cors())
+
+const corsOptions = {
+  exposedHeaders: 'Authorization',
+};
+app.use(cors(corsOptions))
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(routes);
 app.use(validationMiddleware);

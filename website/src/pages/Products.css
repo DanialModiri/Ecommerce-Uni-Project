@@ -3,4 +3,57 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 24px;
+    margin-right: 16px;
+    border-radius: 8px;
+}
+
+.products-container {
+    width: 1250px;
+    margin: auto;
+    display: flex;
+}
+
+.side {
+    width: 250px;
+    height: 100vh;
+    border-radius: 8px;
+}
+
+.filters {
+    margin-top: 16px;
+}
+
+.filters .filter-item {
+    margin-top: 8px;
+}
+
+.pagination {
+    list-style-type: none;
+    margin-top: 64px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-item-link {
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    display: block;
+    height: 12px;
+    width: 12px;
+    line-height: 12px;
+    text-align: center;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.pagination-item-link:hover {
+    background-color: rgb(185, 0, 0);
+    color: white;
+}
+
+.none {
+    display: none;
 }

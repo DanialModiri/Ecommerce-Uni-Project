@@ -8,13 +8,12 @@ import DataGetter from '../DataGetter'
 function SelectField(props) {
     const { items, input, label, initialSelectedItem, url, search, searchKey = 'q', idField='_id', labelField = 'label', placeholder, onChange, inputClassName, meta: { error, touched }, className, ...rest } = props;
     return <Downshift
-        {...input}
         onSelect={() => {
-            input.onBlur();
+            input && input.onBlur();
         }}
         initialSelectedItem={initialSelectedItem}
         onChange={(v) => {
-            input.onChange(v[idField], v);
+            input && input.onChange(v[idField], v);
             onChange && onChange(v[idField], v);
         }}
         itemToString={(item) => item ? item[labelField] : ''}

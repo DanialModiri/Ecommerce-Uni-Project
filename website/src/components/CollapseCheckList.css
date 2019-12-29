@@ -1,0 +1,29 @@
+.collapse {
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.item .text {
+    margin-right: 4px;
+}
+
+.collapse .item {
+    display: flex;
+    font-size: 15px;
+}
+
+.collapse .search-input {
+    border-radius: 8px;
+    border: 1px solid #aaaaaa;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px;
+    background-color: #dfdfdf;
+    margin-bottom: 8px;
+}
+
+.collapse label {
+    font-weight: bold;
+}

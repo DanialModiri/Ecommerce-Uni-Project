@@ -1,0 +1,24 @@
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.category-card {
+    padding: 32px;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    transition: 0.2s ease-in-out;
+    margin-left: 8px;
+}
+
+.category-card:hover {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+    background-color: rgb(136, 0, 0);
+    color: white;
+}
+
+.category-card-link {
+    text-decoration: none;
+    color: #1b1b1b;
+}

@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
     name: { type: String, required: true, unique: true },
     filters: mongoose.SchemaTypes.Mixed,
-    specifications: mongoose.SchemaTypes.Mixed,
+    specifications: [
+        { key: String, value: String }
+    ],
     category: { type: mongoose.SchemaTypes.ObjectId, ref: 'Category' },
     description: { type: String, required: true },
     garantees: [

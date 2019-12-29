@@ -101,6 +101,7 @@ header.header .underline {
     transition: 0.2s;
     border: 1px solid #aaaaaa;
     cursor: pointer;
+    position: relative;
 }
 
 .shopping-card:hover {
@@ -118,4 +119,17 @@ header.header .underline {
     line-height: 27px;
     height: 32px;
     width: 32px;
+}
+
+.shopping-card .number {
+    position: absolute;
+    left: 4px;
+    top: -8px;
+    z-index: 5;
+    color: white;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    font-size: 12px;
+    background-color: rgb(0, 66, 207);
 }

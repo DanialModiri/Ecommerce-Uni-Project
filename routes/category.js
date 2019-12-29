@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Category = require('../model/Category')
+const Product = require('../model/Product');
 
 //get many
 router.get('/', async (req, res) => {
@@ -12,10 +13,16 @@ router.get('/', async (req, res) => {
     res.send(result);
 })
 
+
 //get one
 router.get('/:id', async (req, res) => {
     const category = await Category.findById(req.params.id);
-    res.send(category);
+    const filters_values = {};
+    for(const item of category._doc.filters){
+        const values = await Product.distinct(`filters.${item.name}`, { category: req.params.id });
+        filters_values[item.name] = {label: item.label ,list: values};
+    }
+    res.send({...category._doc, filters_values});
 })
 
 //insert one

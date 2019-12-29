@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CreateProduct from '../pages/CreateProduct';
-import Products from '../pages/Products';
 import CreateCategory from '../pages/Category/CreateCategory';
 import EditProduct from '../pages/EditProduct';
+import ProductList from '../pages/ProductList';
 
 export const routes = {
     createCategory: { path: '/create/category', component: CreateCategory },
     createProduct: { path: '/create/products', component: CreateProduct },
     editProduct: { path: '/edit/product/:id', component: EditProduct },
-    products: { path: '/', component: Products },
+    products: { path: '/', component: ProductList },
 };
 
 const navs = [

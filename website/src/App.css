@@ -6,3 +6,10 @@
 body {
     background-color: rgb(255, 255, 255);
 }
+
+.footer {
+    height: 155px;
+    width: 100%;
+    margin-top: 16px;
+    background-color: rgb(180, 0, 0);
+}

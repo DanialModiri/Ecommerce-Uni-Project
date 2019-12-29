@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css'
+import { connect } from 'react-redux';
 
 const navItems = [
     { title: 'خانه', url: '/#' },
@@ -10,7 +11,7 @@ const navItems = [
     { title: '' }
 ];
 
-function Header() {
+function Header({ shoppingCart }) {
     return <header className="header">
         <div className="container">
             <h2 className="website-title">
@@ -27,10 +28,14 @@ function Header() {
                 <span className="title">ورود به حساب کاربری</span>
             </div>
             <div className="shopping-card">
-            <i className="fa fa-shopping-cart"></i>
+
+                <i className="fa fa-shopping-cart"></i>
             </div>
+            <span className="number">
+                {Object.keys(shoppingCart).length}
+            </span>
         </div>
     </header>
 }
 
-export default Header;
+export default connect(state => state)(Header);
