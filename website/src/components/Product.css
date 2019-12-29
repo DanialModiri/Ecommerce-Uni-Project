@@ -56,3 +56,6 @@
     margin: auto 4px;
 }
 
+.fade-out {
+    opacity: 0;
+}
